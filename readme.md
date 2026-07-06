@@ -62,7 +62,7 @@ Arqueros
 ## 1️⃣ Clonar el repositorio
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone (https://github.com/TeoCalle/GoalKeeperNow)
 ```
 
 ---
