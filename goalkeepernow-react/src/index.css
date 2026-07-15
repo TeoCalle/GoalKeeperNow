@@ -351,3 +351,375 @@ button { font-family: 'Inter', sans-serif; }
 
 /* --- Estrellas (calificación) --- */
 .estrellas { display: inline-flex; gap: 2px; color: var(--dorado); font-size: 1rem; }
+
+
+
+
+
+
+
+
+
+/* ============================= */
+/* LOGIN PREMIUM - GOALKEEPERNOW */
+/* ============================= */
+
+.login-container{
+    min-height:100vh;
+    display:flex;
+    background:
+    radial-gradient(circle at top left,#1d4ed8 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#facc15 0%,transparent 25%),
+    linear-gradient(135deg,#050816,#081224,#0c1830);
+    overflow:hidden;
+}
+
+.login-aside{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:70px;
+    color:white;
+    position:relative;
+}
+
+.login-aside::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:#2563eb;
+    filter:blur(140px);
+    opacity:.18;
+    border-radius:50%;
+    top:-120px;
+    left:-100px;
+    animation:flotar 8s ease-in-out infinite;
+}
+
+.login-aside h1{
+    font-size:55px;
+    margin-bottom:15px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.login-aside p{
+    max-width:500px;
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.login-form-side{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+}
+
+.login-box{
+    width:100%;
+    max-width:470px;
+    padding:45px;
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 15px 50px rgb(0, 0, 0);
+
+    transition:.4s;
+}
+
+.login-box:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 25px 60px rgb(0, 0, 0);
+
+}
+
+.login-box h1{
+
+color:#000000;
+text-shadow:0 0 12px rgb(0, 0, 0);
+
+font-size:36px;
+
+margin-bottom:10px;
+
+}
+
+.login-box p{
+
+color:#E5E7EB;
+
+margin-bottom:25px;
+
+}
+
+.campo-label{
+
+display:block;
+
+margin-bottom:8px;
+
+color:black;
+font-weight:700;
+
+font-weight:600;
+
+}
+
+.login-box input{
+
+width:100%;
+
+padding:16px;
+
+margin-bottom:20px;
+
+border-radius:14px;
+
+border:2px solid transparent;
+
+background:rgba(255,255,255,.15);
+color:black;
+
+font-size:16px;
+
+transition:.35s;
+
+outline:none;
+
+}
+
+.login-box input::placeholder{
+
+color:gold;
+
+}
+
+.login-box input:hover{
+
+border-color:#2563eb;
+
+transform:translateY(-2px);
+
+}
+
+.login-box input:focus{
+
+border-color:#38bdf8;
+
+box-shadow:
+
+0 0 20px rgba(0, 0, 0, 0.954);
+
+background:rgba(255,255,255,.12);
+
+}
+
+.login-box button{
+
+width:100%;
+
+padding:17px;
+
+border:none;
+
+border-radius:14px;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+background:linear-gradient(90deg,#2563eb,#3b82f6,#facc15);
+
+background-size:250%;
+
+color:white;
+
+transition:.45s;
+
+}
+
+.login-box button:hover{
+
+background-position:right;
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 15px 35px rgb(0, 0, 0);
+
+}
+
+.login-box button:active{
+
+transform:scale(.98);
+
+}
+
+.link-secundario{
+
+display:block;
+
+margin-top:18px;
+
+text-align:center;
+
+cursor:pointer;
+
+color:#FFD54F;
+
+transition:.3s;
+
+font-weight:600;
+
+}
+
+.link-secundario:hover{
+
+color:rgb(0, 0, 0);
+
+transform:translateY(-2px);
+
+letter-spacing:.5px;
+
+}
+
+.error-msg{
+
+padding:14px;
+
+margin-bottom:20px;
+
+border-radius:12px;
+
+background:#7f1d1d;
+
+color:white;
+
+border-left:5px solid #ef4444;
+
+animation:aparecer .4s;
+
+}
+
+.logo-mark{
+
+width:85px;
+
+height:85px;
+
+border-radius:20px;
+
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:35px;
+
+font-weight:bold;
+
+margin-bottom:30px;
+
+box-shadow:0 0 30px rgba(37,99,235,.5);
+
+transition:.4s;
+
+}
+
+.logo-mark:hover{
+
+transform:rotate(10deg) scale(1.1);
+
+}
+
+@keyframes flotar{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-25px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+@keyframes aparecer{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:900px){
+
+.login-container{
+
+flex-direction:column;
+
+}
+
+.login-aside{
+
+padding:40px;
+
+text-align:center;
+
+}
+
+.login-form-side{
+
+padding:30px;
+
+}
+
+.login-box{
+
+max-width:100%;
+
+}
+
+}
