@@ -1,4 +1,7 @@
 require('dotenv').config()
+console.log(process.env.DB_HOST);
+console.log(process.env.DB_PORT);
+console.log(process.env.DB_NAME);
 console.log('JWT_SECRET:', process.env.JWT_SECRET)
 const express = require('express')
 const cors = require('cors')
