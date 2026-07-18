@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DashboardPage from './pages/DashboardPage'
 import PorterosPage from './pages/PorterosPage'
+import PerfilPorteroPage from './pages/PerfilPorteroPage'
 import HomePage from './pages/HomePage'
 import TiendaPage from './pages/TiendaPage'
 import PerfilPage from './pages/PerfilPage'
@@ -26,10 +27,15 @@ function paginaInicial() {
 
 function App() {
   const [pagina, setPagina] = useState(paginaInicial())
+  const [porteroSeleccionado, setPorteroSeleccionado] = useState(null)
 
   function navigate(destino) {
     setPagina(destino)
     window.scrollTo(0, 0)
+  }
+  function verPerfilPortero(id) {
+  setPorteroSeleccionado(id)
+  navigate('perfil-portero')
   }
 
   return (
@@ -38,7 +44,8 @@ function App() {
       {pagina === 'login' && <LoginPage onNavigate={navigate} />}
       {pagina === 'registro' && <RegisterPage onNavigate={navigate} />}
       {pagina === 'dashboard' && <DashboardPage onNavigate={navigate} />}
-      {pagina === 'porteros' && <PorterosPage onNavigate={navigate} />}
+      {pagina === 'porteros' && <PorterosPage onNavigate={navigate} onVerPerfil={verPerfilPortero} />}
+      {pagina === 'perfil-portero' && <PerfilPorteroPage porteroId={porteroSeleccionado} onNavigate={navigate} />}
       {pagina === 'tienda' && <TiendaPage onNavigate={navigate} />}
       {pagina === 'perfil' && <PerfilPage onNavigate={navigate} />}
       {pagina === 'solicitudes' && <SolicitudesPage onNavigate={navigate} />}

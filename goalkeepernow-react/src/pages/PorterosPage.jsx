@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { getPorteros, crearSolicitud } from '../services/apiService'
 
-function PorterosPage({ onNavigate }) {
+function PorterosPage({ onNavigate, onVerPerfil }) {
   const [porteros, setPorteros] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -61,6 +61,7 @@ function PorterosPage({ onNavigate }) {
               <div className="portero-card-body">
                 <div className="precio-tag">${Number(portero.precio).toLocaleString('es-CO')} <span>COP / partido</span></div>
                 <p className="desc">{portero.descripcion}</p>
+                <button className="ver-perfil-btn" onClick={() => onVerPerfil(portero.id)}>Ver perfil</button>
                 <button className="solicitar-btn" onClick={() => solicitar(portero.id)}>Solicitar arquero</button>
               </div>
             </div>

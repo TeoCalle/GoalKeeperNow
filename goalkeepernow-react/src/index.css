@@ -351,3 +351,66 @@ button { font-family: 'Inter', sans-serif; }
 
 /* --- Estrellas (calificación) --- */
 .estrellas { display: inline-flex; gap: 2px; color: var(--dorado); font-size: 1rem; }
+
+/* --- Perfil público del portero --- */
+.perfil-portero-hero {
+  background: var(--azul-marino);
+  padding: 32px;
+  border-radius: var(--radio);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+.perfil-portero-avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--dorado);
+  color: var(--azul-marino);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.perfil-portero-hero h1 { color: #fff; font-size: 1.6rem; margin-bottom: 6px; }
+.perfil-portero-hero .nivel-badge { color: var(--dorado-claro); }
+
+.perfil-portero-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-bottom: 26px;
+}
+.perfil-portero-info .card p { margin-bottom: 0; }
+
+.perfil-portero-descripcion { color: var(--texto-suave); line-height: 1.5; }
+
+.ver-perfil-btn {
+  width: 100%; 
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: var(--radio);
+  background: transparent;
+  color: var(--azul-cancha);
+  border: 1.5px solid var(--azul-cancha);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+.ver-perfil-btn:hover { background: var(--azul-cancha); color: #fff; }
+
+.opiniones-lista { display: flex; flex-direction: column; gap: 14px; }
+.opinion-card {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  padding: 18px 20px;
+}
+.opinion-card strong { color: var(--azul-marino); font-size: 0.92rem; }
+.opinion-card p { color: var(--texto-suave); font-size: 0.88rem; margin-top: 6px; line-height: 1.4; }
