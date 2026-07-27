@@ -170,6 +170,7 @@ basededatos/base_completa_goalkeepernow.sql
 
 **Mateo Calle Bolívar**
 **Tomas Peréz Marín**
+**Cristian Pereira Loaiza**
 
 Tecnólogo en Análisis y Desarrollo de Software (SENA)
 
