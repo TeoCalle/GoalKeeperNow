@@ -237,16 +237,11 @@ function CarritoPage({ onNavigate }) {
     </div>
 
     <button
-
-        className="cart-checkout-btn"
-
-        onClick={confirmarCompra}
-
-    >
-
-        Finalizar compra
-
-    </button>
+    className="cart-payment-btn"
+    onClick={() => onNavigate('pagos')}
+>
+    Continuar al pago
+</button>
 
     <p className="cart-note">
 

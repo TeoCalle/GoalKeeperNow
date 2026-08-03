@@ -73,6 +73,64 @@ function PorterosPage({ onNavigate }) {
 
       <div className="page-shell">
 
+        <div className="goalkeeper-hero">
+
+    <div className="goalkeeper-hero-left">
+
+        <span className="goalkeeper-badge">
+            🥅 GOALKEEPERNOW
+        </span>
+
+        <h1>
+            Encuentra el arquero perfecto para tu partido
+        </h1>
+
+        <p>
+            Explora arqueros disponibles, compara precios, revisa sus calificaciones
+            y reserva en pocos minutos.
+        </p>
+
+        <button
+            className="goalkeeper-hero-btn"
+            onClick={() =>
+                window.scrollTo({
+                    top: 700,
+                    behavior: 'smooth'
+                })
+            }
+        >
+            🔍 Buscar arqueros
+        </button>
+
+    </div>
+
+    <div className="goalkeeper-hero-right">
+
+        <div className="goalkeeper-stat">
+
+            <h2>40+</h2>
+            <span>Arqueros</span>
+
+        </div>
+
+        <div className="goalkeeper-stat">
+
+            <h2>4.9</h2>
+            <span>Calificación</span>
+
+        </div>
+
+        <div className="goalkeeper-stat">
+
+            <h2>24/7</h2>
+            <span>Disponibilidad</span>
+
+        </div>
+
+    </div>
+
+</div>
+
         <div className="porteros-header">
 
           <h1>🧤 Arqueros Disponibles</h1>

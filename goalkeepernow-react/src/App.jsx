@@ -23,6 +23,7 @@ import FaqPage from './pages/FaqPage'
 import PorteroPerfilPage from './pages/PorteroPerfilPage'
 import EntrenadorPerfilPage from './pages/EntrenadorPerfilPage'
 import CanchaPerfilPage from './pages/CanchaPerfilPage'
+import PagosPage from './pages/PagosPage'
 
 
 function paginaInicial() {
@@ -66,6 +67,7 @@ function App() {
       {pagina === 'portero-perfil' && <PorteroPerfilPage onNavigate={navigate} />}
       {pagina === 'entrenador-perfil' && <EntrenadorPerfilPage onNavigate={navigate} />}
       {pagina === 'cancha-perfil' && <CanchaPerfilPage onNavigate={navigate} />}
+      {pagina === 'pagos' && <PagosPage onNavigate={navigate} />}
     </>
   )
 }
