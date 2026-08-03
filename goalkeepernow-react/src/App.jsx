@@ -16,6 +16,14 @@ import AdminUsuariosPage from './pages/AdminUsuariosPage'
 import AdminProductosPage from './pages/AdminProductosPage'
 import AdminEntrenadoresPage from './pages/AdminEntrenadoresPage'
 import AdminCanchasPage from './pages/AdminCanchasPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import TermsPage from './pages/TermsPage'
+import ContactPage from './pages/ContactPage'
+import FaqPage from './pages/FaqPage'
+import PorteroPerfilPage from './pages/PorteroPerfilPage'
+import EntrenadorPerfilPage from './pages/EntrenadorPerfilPage'
+import CanchaPerfilPage from './pages/CanchaPerfilPage'
+
 
 function paginaInicial() {
   const token = localStorage.getItem('token')
@@ -51,6 +59,13 @@ function App() {
       {pagina === 'admin-productos' && <AdminProductosPage onNavigate={navigate} />}
       {pagina === 'admin-entrenadores' && <AdminEntrenadoresPage onNavigate={navigate} />}
       {pagina === 'admin-canchas' && <AdminCanchasPage onNavigate={navigate} />}
+      {pagina === 'privacy' && <PrivacyPolicyPage onNavigate={navigate} />}
+      {pagina === 'terms' && <TermsPage onNavigate={navigate} />}
+      {pagina === 'contact' && <ContactPage onNavigate={navigate} />}
+      {pagina === 'faq' && <FaqPage onNavigate={navigate} />}
+      {pagina === 'portero-perfil' && <PorteroPerfilPage onNavigate={navigate} />}
+      {pagina === 'entrenador-perfil' && <EntrenadorPerfilPage onNavigate={navigate} />}
+      {pagina === 'cancha-perfil' && <CanchaPerfilPage onNavigate={navigate} />}
     </>
   )
 }

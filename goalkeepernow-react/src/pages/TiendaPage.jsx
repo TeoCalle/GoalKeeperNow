@@ -1,3 +1,4 @@
+import ScrollReveal from '../components/ScrollReveal'
 import { useEffect, useState, useCallback } from 'react'
 import Navbar from '../components/Navbar'
 import { getProductos, getCategoriasProductos } from '../services/apiService'
@@ -85,7 +86,105 @@ function TiendaPage({ onNavigate }) {
 
       <div className="page-shell">
         {/* Toolbar */}
-        <div style={{ display: 'flex', gap: 12, marginBottom: 22, flexWrap: 'wrap', alignItems: 'center' }}>
+        
+
+        {/* Info */}
+        {/* HERO TIENDA */}
+
+<div className="store-hero fade-down">
+
+    <div className="store-hero-left">
+
+        <span className="store-badge">
+
+            🛒 TIENDA OFICIAL
+
+        </span>
+
+        <h1>
+
+            Equípate como un profesional
+
+        </h1>
+
+        <p>
+
+            Descubre guantes, balones, uniformes, accesorios y todo lo que necesitas para dominar el terreno de juego.
+
+        </p>
+
+        <button
+            className="btn-dorado"
+            onClick={() =>
+                document.querySelector('.store-grid')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+            }
+        >
+
+            🛍 Explorar productos
+
+        </button>
+
+    </div>
+
+    <div className="store-hero-right">
+
+        <img
+            src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=1200"
+            alt="Implementos deportivos"
+        />
+
+        <div className="store-counter">
+
+            <h2>
+
+                {total}
+
+            </h2>
+
+            <span>
+
+                Productos disponibles
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div className="store-promo-bar fade-up delay-1">
+
+    <div className="store-promo-track">
+
+        <span>🚚 Envío GRATIS desde $150.000</span>
+
+        <span>⭐ 10% de descuento en guantes seleccionados</span>
+
+        <span>🔒 Compra 100% segura</span>
+
+        <span>💳 Paga con múltiples métodos de pago</span>
+
+        <span>🧤 Productos para arqueros de todos los niveles</span>
+
+        {/* Repetimos los mensajes para que la animación sea continua */}
+
+        <span>🚚 Envío GRATIS desde $150.000</span>
+
+        <span>⭐ 10% de descuento en guantes seleccionados</span>
+
+        <span>🔒 Compra 100% segura</span>
+
+        <span>💳 Paga con múltiples métodos de pago</span>
+
+        <span>🧤 Productos para arqueros de todos los niveles</span>
+
+    </div>
+
+</div>
+
+<div style={{ display: 'flex', gap: 12, marginBottom: 22, flexWrap: 'wrap', alignItems: 'center' }}>
           <form onSubmit={buscar} style={{ display: 'flex', flex: 1, minWidth: 200 }}>
             <input
               placeholder="Buscar productos..."
@@ -125,46 +224,379 @@ function TiendaPage({ onNavigate }) {
           </button>
         </div>
 
-        {/* Info */}
-        <div className="section-heading">
-          <h2>Tienda Arqueros.co</h2>
-          <span className="ver-todo">{total} producto{total !== 1 ? 's' : ''} encontrado{total !== 1 ? 's' : ''}</span>
-        </div>
-
         {error && <p className="error-msg">{error}</p>}
 
+        <div className="store-categories">
+
+    <div
+        className={`store-category-card ${filtros.categoria === '' ? 'active' : ''}`}
+        onClick={() => cambiarFiltro('categoria', '')}
+    >
+        <div className="store-category-icon">🛍️</div>
+        <span>Todos</span>
+    </div>
+
+    <div
+        className={`store-category-card ${filtros.categoria === 'Guantes' ? 'active' : ''}`}
+        onClick={() => cambiarFiltro('categoria', 'Guantes')}
+    >
+        <div className="store-category-icon">🧤</div>
+        <span>Guantes</span>
+    </div>
+
+    <div
+        className={`store-category-card ${filtros.categoria === 'Balones' ? 'active' : ''}`}
+        onClick={() => cambiarFiltro('categoria', 'Balones')}
+    >
+        <div className="store-category-icon">⚽</div>
+        <span>Balones</span>
+    </div>
+
+    <div
+        className={`store-category-card ${filtros.categoria === 'Uniformes' ? 'active' : ''}`}
+        onClick={() => cambiarFiltro('categoria', 'Uniformes')}
+    >
+        <div className="store-category-icon">👕</div>
+        <span>Uniformes</span>
+    </div>
+
+    <div
+        className={`store-category-card ${filtros.categoria === 'Accesorios' ? 'active' : ''}`}
+        onClick={() => cambiarFiltro('categoria', 'Accesorios')}
+    >
+        <div className="store-category-icon">🥅</div>
+        <span>Accesorios</span>
+    </div>
+
+</div>
+
+<div className="store-featured">
+
+    <div className="section-heading">
+
+        <h2>🔥 Productos destacados</h2>
+
+        <p>
+            Descubre algunos de los artículos favoritos de nuestra comunidad.
+        </p>
+
+    </div>
+
+    <div className="store-featured-grid">
+
+        {productos.slice(0, 3).map((p) => (
+
+            <div className="store-featured-card" key={`featured-${p.id}`}>
+
+                <img
+                    src={
+                        p.imagen_url ||
+                        "https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=900"
+                    }
+                    alt={p.nombre}
+                />
+
+                <div className="store-featured-content">
+
+                    <span>
+
+                        ⭐ Destacado
+
+                    </span>
+
+                    <h3>
+
+                        {p.nombre}
+
+                    </h3>
+
+                    <p>
+
+                        {p.descripcion}
+
+                    </p>
+
+                    <strong>
+
+                        ${Number(p.precio).toLocaleString('es-CO')}
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        ))}
+
+    </div>
+
+</div>
+
+<div className="store-benefits fade-up delay-2">
+
+    <div className="section-heading">
+
+        <h2>¿Por qué comprar con GoalKeeperNow?</h2>
+
+        <p>
+
+            Queremos que tu experiencia sea rápida, segura y confiable.
+
+        </p>
+
+    </div>
+
+    <div className="store-benefits-grid">
+
+        <div className="store-benefit">
+
+            <div className="store-benefit-icon">
+
+                🚚
+
+            </div>
+
+            <h3>
+
+                Envíos rápidos
+
+            </h3>
+
+            <p>
+
+                Recibe tus implementos deportivos en el menor tiempo posible.
+
+            </p>
+
+        </div>
+
+        <div className="store-benefit">
+
+            <div className="store-benefit-icon">
+
+                🔒
+
+            </div>
+
+            <h3>
+
+                Compra segura
+
+            </h3>
+
+            <p>
+
+                Todos los pagos se realizan de manera segura y protegida.
+
+            </p>
+
+        </div>
+
+        <div className="store-benefit">
+
+            <div className="store-benefit-icon">
+
+                🛡️
+
+            </div>
+
+            <h3>
+
+                Garantía de calidad
+
+            </h3>
+
+            <p>
+
+                Solo trabajamos con productos seleccionados para arqueros.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div className="store-brands fade-up delay-3">
+
+    <div className="section-heading">
+
+        <h2>🏆 Marcas destacadas</h2>
+
+        <p>
+
+            Trabajamos con las mejores marcas para ofrecer calidad y rendimiento.
+
+        </p>
+
+    </div>
+
+    <div className="store-brands-grid">
+
+        <div className="brand-card">
+
+            <img
+                src="https://cdn.simpleicons.org/nike/111111"
+                alt="Nike"
+            />
+
+            <span>Nike</span>
+
+        </div>
+
+        <div className="brand-card">
+
+            <img
+                src="https://cdn.simpleicons.org/adidas/111111"
+                alt="Adidas"
+            />
+
+            <span>Adidas</span>
+
+        </div>
+
+        <div className="brand-card">
+
+            <img
+                src="https://cdn.simpleicons.org/puma/111111"
+                alt="Puma"
+            />
+
+            <span>Puma</span>
+
+        </div>
+
+        <div className="brand-card">
+
+            <h2>REUSCH</h2>
+
+            <span>Guantes</span>
+
+        </div>
+
+        <div className="brand-card">
+
+            <h2>RINAT</h2>
+
+            <span>Porteros</span>
+
+        </div>
+
+        <div className="brand-card">
+
+            <h2>UHHLSPORT</h2>
+
+            <span>Profesional</span>
+
+        </div>
+
+    </div>
+
+</div>
+
         {/* Grid */}
-        <div className="porteros-grid" style={{ marginBottom: 28 }}>
+        <div className="store-grid fade-up delay-4">
           {loading
             ? Array.from({ length: 9 }).map((_, i) => <SkeletonCard key={i} />)
             : productos.length === 0
               ? <p className="estado-vacio">No hay productos con esos filtros.</p>
               : productos.map(p => (
-                <div className="portero-card" key={p.id}>
-                  <img
-                    src={p.imagen_url || 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=500'}
-                    alt={p.nombre}
-                    style={{ width: '100%', height: 160, objectFit: 'cover' }}
-                  />
-                  <div className="portero-card-body">
-                    <span className="nivel-badge" style={{ color: 'var(--azul-cancha)' }}>{p.categoria}</span>
-                    <h2 style={{ color: 'var(--azul-marino)', fontSize: '0.95rem', margin: '6px 0 8px' }}>{p.nombre}</h2>
-                    <p className="desc">{p.descripcion}</p>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                      <div className="precio-tag">${Number(p.precio).toLocaleString('es-CO')} <span>COP</span></div>
-                      <span style={{ fontSize: '0.75rem', color: p.stock > 0 ? 'var(--exito)' : 'var(--peligro)', fontWeight: 600 }}>
-                        {p.stock > 0 ? `${p.stock} disponibles` : 'Sin stock'}
-                      </span>
-                    </div>
-                    <button
-                      className="solicitar-btn"
-                      onClick={() => agregar(p)}
-                      disabled={p.stock <= 0}
-                      style={{ opacity: p.stock <= 0 ? 0.5 : 1, cursor: p.stock <= 0 ? 'not-allowed' : 'pointer' }}
-                    >
-                      {p.stock > 0 ? '+ Agregar al carrito' : 'Sin stock'}
-                    </button>
-                  </div>
+                <div className="store-card" key={p.id}>
+                  <div className="store-image">
+
+<img
+src={p.imagen_url || 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=700'}
+alt={p.nombre}
+/>
+
+<div className="discount-tag">
+
+🔥 Oferta
+
+</div>
+
+</div>
+                  <span className="store-category">
+
+    {p.categoria}
+
+</span>
+
+<h2 className="store-title">
+
+    {p.nombre}
+
+</h2>
+
+<div className="store-stars">
+
+★★★★★
+
+<span>
+
+4.9
+
+</span>
+
+</div>
+
+<p className="store-description">
+
+    {p.descripcion}
+
+</p>
+
+<div className="store-price-row">
+
+    <div className="store-price">
+
+        ${Number(p.precio).toLocaleString('es-CO')}
+
+    </div>
+
+    <div
+        className="store-stock"
+        style={{
+            color: p.stock > 0 ? 'green' : 'red'
+        }}
+    >
+
+        {
+            p.stock > 0
+            ? `${p.stock} disponibles`
+            : 'Agotado'
+        }
+
+    </div>
+
+</div>
+
+<div className="store-buttons">
+
+    <button
+        className="favorite-btn"
+    >
+
+        ❤
+
+    </button>
+
+    <button
+        className="buy-btn"
+        onClick={() => agregar(p)}
+        disabled={p.stock <= 0}
+    >
+
+        {
+            p.stock > 0
+            ? 'Agregar al carrito'
+            : 'Sin stock'
+        }
+
+    </button>
+
+</div>
                 </div>
               ))
           }

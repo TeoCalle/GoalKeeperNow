@@ -69,27 +69,122 @@ function PerfilPage({ onNavigate }) {
     <div className="dashboard-container">
       <Navbar onNavigate={onNavigate} paginaActiva="perfil" />
       <div className="page-shell">
-        <div className="section-heading">
-          <h2>Mi perfil</h2>
-          <span className="ver-todo" onClick={() => onNavigate('dashboard')}>Volver al panel</span>
-        </div>
+        <div className="profile-hero">
+
+    <div>
+
+        <span className="profile-badge">
+
+            👤 MI PERFIL
+
+        </span>
+
+        <h1>
+
+            Bienvenido, {usuario.nombre || 'Usuario'}
+
+        </h1>
+
+        <p>
+
+            Administra tu información personal, revisa tus opiniones y mantén actualizado tu perfil dentro de GoalKeeperNow.
+
+        </p>
+
+    </div>
+
+    <div className="profile-avatar-big">
+
+        👤
+
+    </div>
+
+</div>
 
         {error && <p className="error-msg">{error}</p>}
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 22 }}>
-          <div className="card">
-            <div className="card-icon">👤</div>
-            <h2>{usuario.nombre || 'Usuario'}</h2>
-            <p>
-              {usuario.tipo === 'portero' ? 'Arquero' : 'Jugador'} · {usuario.email}<br />
-              {usuario.tipo === 'portero' && calificaciones.promedio && (
-                <>Calificación promedio: <Estrellas valor={calificaciones.promedio} /> ({calificaciones.promedio}/5, {calificaciones.total} opiniones)</>
-              )}
-              {usuario.tipo === 'portero' && !calificaciones.promedio && 'Aún no tienes calificaciones.'}
-            </p>
+        <div className="profile-grid">
+          <div className="card profile-card">
 
+    <div className="profile-header-card">
+
+        <div className="profile-avatar">
+
+            {(usuario.nombre || 'U')
+                .split(' ')
+                .map(n => n[0])
+                .slice(0,2)
+                .join('')}
+
+        </div>
+
+        <h2>
+
+            {usuario.nombre || 'Usuario'}
+
+        </h2>
+
+        <span className="profile-role">
+
+            {usuario.tipo === 'portero'
+                ? '🥅 Arquero'
+                : '⚽ Jugador'}
+
+        </span>
+
+    </div>
+
+    <div className="profile-info">
+
+        <div>
+
+            <strong>Correo</strong>
+
+            <span>{usuario.email}</span>
+
+        </div>
+
+        <div>
+
+            <strong>Estado</strong>
+
+            <span style={{color:"#16A34A"}}>
+
+                ● Activo
+
+            </span>
+
+        </div>
+
+        {usuario.tipo === 'portero' && (
+
+            <div>
+
+                <strong>Calificación</strong>
+
+                <span>
+
+                    {calificaciones.promedio
+                        ? `${calificaciones.promedio} ⭐`
+                        : 'Sin calificaciones'}
+
+                </span>
+
+            </div>
+
+        )}
+
+    </div>
             {usuario.tipo === 'portero' && perfilPortero && (
-              <form onSubmit={guardarPerfil} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <form
+                onSubmit={guardarPerfil}
+                className="profile-form"
+              >
+                <h3 className="profile-form-title">
+
+                  ⚙ Configuración del perfil
+
+                </h3>
                 <label className="campo-label">Nivel</label>
                 <select name="nivel" value={form.nivel} onChange={handleChange}>
                   <option value="principiante">Principiante</option>
@@ -102,34 +197,122 @@ function PerfilPage({ onNavigate }) {
                 <label className="campo-label">Descripción</label>
                 <input type="text" name="descripcion" value={form.descripcion} onChange={handleChange} placeholder="Disponibilidad, experiencia, zona..." />
                 {mensaje && <p style={{ color: 'var(--exito)', fontSize: '0.85rem', marginBottom: 10 }}>{mensaje}</p>}
-                <button type="submit" disabled={guardando}>{guardando ? 'Guardando...' : 'Guardar cambios'}</button>
+                <button
+                  type="submit"
+                  disabled={guardando}
+                  className="profile-save-btn"
+                >{guardando ? 'Guardando...' : 'Guardar cambios'}</button>
               </form>
             )}
           </div>
 
-          <div className="card">
-            <div className="card-icon">⭐</div>
-            <h2>{usuario.tipo === 'portero' ? 'Opiniones recibidas' : 'Calificaciones'}</h2>
-            {usuario.tipo === 'portero' ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                {calificaciones.opiniones.length === 0 && <p>Aún no tienes opiniones de jugadores.</p>}
-                {calificaciones.opiniones.map((op, i) => (
-                  <div key={i} style={{ borderBottom: '1px solid var(--linea)', paddingBottom: 10 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <strong style={{ fontSize: '0.88rem', color: 'var(--azul-marino)' }}>{op.jugador_nombre}</strong>
-                      <Estrellas valor={op.estrellas} />
-                    </div>
-                    {op.comentario && <p style={{ fontSize: '0.85rem', color: 'var(--texto-suave)', marginTop: 4 }}>{op.comentario}</p>}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <>
-                <p>Después de cada partido completado podrás calificar al arquero desde "Mis Solicitudes".</p>
-                <button className="card-link" onClick={() => onNavigate('solicitudes')}>Ir a mis solicitudes</button>
-              </>
+          <div className="card profile-review-card">
+
+    <div className="profile-review-header">
+
+        <h2>
+
+            ⭐ Opiniones recibidas
+
+        </h2>
+
+        {usuario.tipo === 'portero' && (
+
+            <div className="profile-review-score">
+
+                <strong>
+
+                    {calificaciones.promedio || 0}
+
+                </strong>
+
+                <span>
+
+                    ★★★★★
+
+                </span>
+
+                <small>
+
+                    {calificaciones.total} opiniones
+
+                </small>
+
+            </div>
+
+        )}
+
+    </div>
+
+    {usuario.tipo === 'portero' ? (
+
+        <div className="profile-review-list">
+
+            {calificaciones.opiniones.length === 0 && (
+
+                <p>Aún no tienes opiniones.</p>
+
             )}
-          </div>
+
+            {calificaciones.opiniones.map((op, i) => (
+
+                <div
+                    key={i}
+                    className="profile-review-item"
+                >
+
+                    <div className="profile-review-top">
+
+                        <strong>
+
+                            👤 {op.jugador_nombre}
+
+                        </strong>
+
+                        <Estrellas valor={op.estrellas} />
+
+                    </div>
+
+                    {op.comentario && (
+
+                        <p>
+
+                            {op.comentario}
+
+                        </p>
+
+                    )}
+
+                </div>
+
+            ))}
+
+        </div>
+
+    ) : (
+
+        <>
+
+            <p>
+
+                Después de cada partido podrás calificar al arquero.
+
+            </p>
+
+            <button
+                className="card-link"
+                onClick={() => onNavigate('solicitudes')}
+            >
+
+                Ir a mis solicitudes
+
+            </button>
+
+        </>
+
+    )}
+
+</div>
         </div>
       </div>
     </div>

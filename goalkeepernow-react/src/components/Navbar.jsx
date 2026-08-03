@@ -1,4 +1,5 @@
 import { useCarrito } from '../context/CarritoContext'
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 
 function Navbar({ onNavigate, paginaActiva }) {
   const usuario = JSON.parse(localStorage.getItem('usuario') || '{}')
@@ -8,12 +9,30 @@ function Navbar({ onNavigate, paginaActiva }) {
     <div className="navbar">
       <div className="navbar-top">
         <button className="navbar-logo" onClick={() => onNavigate('home')}>
-          <span className="logo-mark">A<span className="dot">.</span></span>
-          ARQUEROS<span style={{ color: 'var(--dorado)' }}>.CO</span>
+         <div className="navbar-brand">
+
+  <span className="brand-icon">
+    🧤
+  </span>
+
+  <div>
+
+    <h2>
+      GoalKeeper
+      <span>Now</span>
+    </h2>
+
+    <small>
+      Tu arquero cuando lo necesites
+    </small>
+
+  </div>
+
+</div>
         </button>
 
         <div className="navbar-search">
-          <input type="text" placeholder="Buscar guantes, uniformes, arqueros..." />
+          <input type="text" placeholder="Buscar arqueros, productos o entrenadores..."></input>
           <button aria-label="Buscar">🔍</button>
         </div>
 
@@ -36,7 +55,7 @@ function Navbar({ onNavigate, paginaActiva }) {
 
       <div className="navbar-bottom">
         <div className="navbar-bottom-inner">
-          <button className="nav-categorias" onClick={() => onNavigate('tienda')}>☰ Categorías</button>
+          
           <button className={`nav-link ${paginaActiva === 'home' ? 'activo' : ''}`} onClick={() => onNavigate('home')}>Inicio</button>
           <button className={`nav-link ${paginaActiva === 'tienda' ? 'activo' : ''}`} onClick={() => onNavigate('tienda')}>Tienda</button>
           <button className={`nav-link ${paginaActiva === 'porteros' ? 'activo' : ''}`} onClick={() => onNavigate('porteros')} style={{ position:'relative' }}>
@@ -50,7 +69,43 @@ function Navbar({ onNavigate, paginaActiva }) {
               onClick={() => onNavigate(usuario.tipo === 'admin' ? 'admin' : 'dashboard')}>
               Mi Panel
             </button>
+
+                          
+
           )}
+          <div className="navbar-social">
+
+    <button
+        className="social-icon whatsapp"
+        title="WhatsApp"
+        onClick={() =>
+            window.open(
+                'https://web.whatsapp.com/',
+                '_blank'
+            )
+        }
+    >
+
+        <FaWhatsapp />
+
+    </button>
+
+    <button
+        className="social-icon instagram"
+        title="Instagram"
+        onClick={() =>
+            window.open(
+                'https://www.instagram.com/teocalle_/',
+                '_blank'
+            )
+        }
+    >
+
+        <FaInstagram />
+
+    </button>
+
+</div>
         </div>
       </div>
     </div>

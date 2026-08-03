@@ -14,40 +14,262 @@ function EntrenadoresPage({ onNavigate }) {
   return (
     <div className="dashboard-container">
       <Navbar onNavigate={onNavigate} paginaActiva="entrenadores" />
-      <div style={{ background:'linear-gradient(120deg, var(--azul-marino), var(--azul-cancha-dark))', padding:'60px 32px', color:'#fff', textAlign:'center' }}>
-        <div style={{ fontSize:'2.8rem', marginBottom:12 }}>🏋️</div>
-        <h1 style={{ fontFamily:'Oswald', fontSize:'2.2rem', marginBottom:12, textTransform:'uppercase' }}>Entrena con nosotros</h1>
-        <p style={{ color:'#BFD0E8', maxWidth:520, margin:'0 auto 24px', lineHeight:1.6 }}>Mejora tu técnica, tus reflejos y tu posicionamiento bajo el arco con nuestros entrenadores certificados.</p>
-        <div style={{ display:'flex', justifyContent:'center', gap:32, flexWrap:'wrap' }}>
-          {[['🧤','Técnica especializada'],['📅','Horarios flexibles'],['⭐','Entrenadores certificados']].map(([i,t]) => (
-            <div key={t}><div style={{ fontSize:'1.6rem' }}>{i}</div><div style={{ fontSize:'0.85rem', color:'#BFD0E8', marginTop:4 }}>{t}</div></div>
-          ))}
-        </div>
-      </div>
+      <div
+  
+
+  className="coach-hero"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(8,25,45,.75), rgba(8,25,45,.75)), url('https://images.unsplash.com/photo-1511886929837-354d827aae26?w=1600')",
+  }}
+>
+
+  <div className="coach-hero-content">
+
+    <span className="coach-badge">
+      🏆 ENTRENADORES CERTIFICADOS
+    </span>
+
+    <h1>
+      Lleva tu nivel al siguiente escalón
+    </h1>
+
+    <p>
+      Aprende con entrenadores especializados en porteros y mejora tus reflejos, técnica y posicionamiento con sesiones personalizadas.
+    </p>
+
+    <button
+      className="btn-dorado"
+      onClick={() => window.scrollTo({ top: 500, behavior: 'smooth' })}
+    >
+      🏋️ Ver entrenadores
+    </button>
+
+  </div>
+
+</div>
       <div className="page-shell">
         <div className="section-heading" style={{ marginTop:32 }}><h2>Nuestros entrenadores</h2></div>
         {error && <p className="error-msg">{error}</p>}
         {loading && <p className="estado-vacio">Cargando entrenadores...</p>}
-        <div className="porteros-grid">
-          {entrenadores.map(e => (
-            <div className="portero-card" key={e.id}>
-              <img src={e.foto_url || 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=500'} alt={e.nombre} style={{ width:'100%', height:200, objectFit:'cover' }} />
-              <div className="portero-card-top"><div><h2 style={{ color:'#fff', margin:0 }}>{e.nombre}</h2><span className="nivel-badge">{e.especialidad}</span></div></div>
-              <div className="portero-card-body">
-                <div className="precio-tag">${Number(e.precio_hora).toLocaleString('es-CO')} <span>COP / hora</span></div>
-                <p className="desc">{e.descripcion}</p>
-                {e.experiencia && <p style={{ fontSize:'0.8rem', color:'var(--texto-suave)', marginBottom:12 }}>🏆 {e.experiencia} de experiencia</p>}
-                <button className="solicitar-btn" onClick={() => alert('¡Próximamente podrás reservar sesiones aquí!')}>Reservar sesión</button>
-              </div>
-            </div>
-          ))}
+        <div className="coach-grid">
+
+  {entrenadores.map((e) => (
+
+    <div
+      className="coach-card"
+      key={e.id}
+    >
+
+      <div className="coach-image">
+
+        <img
+          src={
+            e.foto_url ||
+            "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800"
+          }
+          alt={e.nombre}
+        />
+
+        <span className="coach-status">
+          🟢 Disponible
+        </span>
+
+      </div>
+
+      <div className="coach-content">
+
+        <h2>
+          {e.nombre}
+        </h2>
+
+        <div className="coach-stars">
+
+          ⭐⭐⭐⭐⭐
+
+          <span>4.9</span>
+
         </div>
-        <div style={{ marginTop:48 }}>
-          <div className="section-heading"><h2>Preguntas frecuentes</h2></div>
-          {[['¿Cuánto dura una sesión?','Las sesiones duran entre 60 y 90 minutos.'],['¿Necesito experiencia previa?','No. Trabajamos con todos los niveles.'],['¿Dónde se realizan?','En nuestras canchas asociadas o donde el entrenador indique.'],['¿Cómo pago?','Directamente con el entrenador, en efectivo o transferencia.']].map(([p,r]) => (
-            <div key={p} className="card" style={{ marginBottom:10 }}><h2 style={{ fontSize:'0.95rem', marginBottom:6 }}>{p}</h2><p style={{ margin:0, fontSize:'0.88rem' }}>{r}</p></div>
-          ))}
+
+        <div className="coach-info">
+
+          <span>👥 +250 alumnos</span>
+
+          <span>⚡ Responde en menos de 1 hora</span>
+
+          <span>📍 Medellín</span>
+
         </div>
+
+        <p className="coach-speciality">
+
+          🏆 {e.especialidad}
+
+        </p>
+
+        <p>
+
+          📍 Medellín
+
+        </p>
+
+        {e.experiencia && (
+
+          <p>
+
+            📅 {e.experiencia}
+
+          </p>
+
+        )}
+
+        <div className="coach-top-badge">
+
+          ⭐ Top Coach
+
+        </div>
+
+        <div className="coach-price">
+
+          ${Number(e.precio_hora).toLocaleString('es-CO')}
+
+          <span> / hora</span>
+
+        </div>
+
+        <div className="coach-buttons">
+
+          <button
+            className="coach-btn-secondary"
+            onClick={() => {
+
+            localStorage.setItem(
+              'entrenadorSeleccionado',
+                JSON.stringify(e)
+            )
+
+            onNavigate('entrenador-perfil')
+
+          }}
+          >
+            👁 Ver perfil
+          </button>
+
+          <button
+            className="coach-btn-primary"
+            onClick={() =>
+              alert('¡Próximamente podrás reservar sesiones aquí!')
+            }
+          >
+            🏋️ Reservar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  ))}
+
+</div>
+        <div className="coach-extra">
+
+  <div className="section-heading">
+
+    <h2>¿Por qué entrenar con GoalKeeperNow?</h2>
+
+  </div>
+
+  <div className="coach-benefits">
+
+    <div className="coach-benefit-card">
+
+      <div className="coach-benefit-icon">🏆</div>
+
+      <h3>Entrenadores certificados</h3>
+
+      <p>
+        Todos nuestros entrenadores cuentan con experiencia y preparación para mejorar tu rendimiento.
+      </p>
+
+    </div>
+
+    <div className="coach-benefit-card">
+
+      <div className="coach-benefit-icon">📅</div>
+
+      <h3>Horarios flexibles</h3>
+
+      <p>
+        Agenda entrenamientos entre semana o fines de semana según tu disponibilidad.
+      </p>
+
+    </div>
+
+    <div className="coach-benefit-card">
+
+      <div className="coach-benefit-icon">🎯</div>
+
+      <h3>Entrenamiento personalizado</h3>
+
+      <p>
+        Cada sesión se adapta a tu edad, nivel y objetivos deportivos.
+      </p>
+
+    </div>
+
+    <div className="coach-benefit-card">
+
+      <div className="coach-benefit-icon">⭐</div>
+
+      <h3>Calidad garantizada</h3>
+
+      <p>
+        Aprende con profesionales recomendados por cientos de jugadores.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div className="coach-stats">
+
+    <div>
+
+      <h2>+500</h2>
+
+      <span>Entrenamientos</span>
+
+    </div>
+
+    <div>
+
+      <h2>98%</h2>
+
+      <span>Satisfacción</span>
+
+    </div>
+
+    <div>
+
+      <h2>120+</h2>
+
+      <span>Porteros formados</span>
+
+    </div>
+
+    <div>
+
+      <h2>15+</h2>
+
+      <span>Entrenadores</span>
+
+    </div>
+
+  </div>
+
+</div>
       </div>
     </div>
   )
