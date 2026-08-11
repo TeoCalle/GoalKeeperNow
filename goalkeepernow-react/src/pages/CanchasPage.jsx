@@ -33,11 +33,51 @@ function CanchasPage({ onNavigate }) {
   return (
     <div className="dashboard-container">
       <Navbar onNavigate={onNavigate} paginaActiva="canchas" />
-      <div style={{ background:'linear-gradient(120deg, var(--azul-marino), #1a4a7a)', padding:'48px 32px', color:'#fff', textAlign:'center' }}>
-        <div style={{ fontSize:'2.5rem', marginBottom:10 }}>🏟️</div>
-        <h1 style={{ fontFamily:'Oswald', fontSize:'2rem', textTransform:'uppercase', marginBottom:10 }}>Canchas disponibles</h1>
-        <p style={{ color:'#BFD0E8', maxWidth:480, margin:'0 auto' }}>Reserva tu cancha favorita y juega cuando quieras, sin complicaciones.</p>
-      </div>
+      <div
+  className="fields-hero"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(8,25,45,.72), rgba(8,25,45,.72)), url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=1600')",
+  }}
+>
+
+  <div className="fields-hero-content">
+
+    <span className="coach-badge">
+
+      🏟️ RESERVA EN SEGUNDOS
+
+    </span>
+
+    <h1>
+
+      Encuentra la cancha perfecta
+
+    </h1>
+
+    <p>
+
+      Reserva canchas de fútbol cerca de ti con disponibilidad inmediata, iluminación, parqueadero y las mejores instalaciones.
+
+    </p>
+
+    <button
+      className="btn-dorado"
+      onClick={() =>
+        window.scrollTo({
+          top: 520,
+          behavior: "smooth",
+        })
+      }
+    >
+
+      ⚽ Ver canchas
+
+    </button>
+
+  </div>
+
+</div>
       <div className="page-shell">
         <div style={{ display:'flex', gap:10, marginBottom:22, flexWrap:'wrap', alignItems:'center' }}>
           <span style={{ fontWeight:600, color:'var(--azul-marino)' }}>Tipo:</span>
@@ -51,20 +91,311 @@ function CanchasPage({ onNavigate }) {
         {loading && <p className="estado-vacio">Cargando canchas...</p>}
         <div className="porteros-grid">
           {canchas.map(c => (
-            <div className="portero-card" key={c.id}>
-              <img src={c.foto_url || 'https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=500'} alt={c.nombre} style={{ width:'100%', height:180, objectFit:'cover' }} />
-              <div className="portero-card-top"><div><h2 style={{ color:'#fff', margin:0 }}>{c.nombre}</h2><span className="nivel-badge">{TIPO_LABEL[c.tipo]} · {c.ciudad}</span></div></div>
-              <div className="portero-card-body">
-                <div className="precio-tag">${Number(c.precio_hora).toLocaleString('es-CO')} <span>COP / hora</span></div>
-                {c.direccion && <p style={{ fontSize:'0.8rem', color:'var(--texto-suave)', marginBottom:8 }}>📍 {c.direccion}</p>}
-                <p className="desc">{c.descripcion}</p>
-                <button className="solicitar-btn" onClick={() => setReservando(c)}>Reservar cancha</button>
-              </div>
-            </div>
+            <div className="fields-grid">
+
+  {canchas.map((c) => (
+
+    <div className="field-card" key={c.id}>
+
+      <div className="field-image">
+
+        <img
+          src={
+            c.foto_url ||
+            "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=1200"
+          }
+          alt={c.nombre}
+        />
+
+        <span className="field-status">
+          🟢 Disponible
+        </span>
+
+      </div>
+
+      <div className="field-content">
+
+        <div className="field-rating">
+
+          ⭐⭐⭐⭐⭐
+
+          <span>4.9</span>
+
+        </div>
+
+        <h2>
+
+          {c.nombre}
+
+        </h2>
+
+        <p>
+
+          📍 {c.ciudad}
+
+        </p>
+
+        <div className="field-features">
+
+          <span>⚽ {TIPO_LABEL[c.tipo]}</span>
+
+          <span>💡 Iluminación</span>
+
+          <span>🚿 Vestidores</span>
+
+          <span>🚗 Parqueadero</span>
+
+        </div>
+
+        <div className="field-price">
+
+          ${Number(c.precio_hora).toLocaleString("es-CO")}
+
+          <span> / hora</span>
+
+        </div>
+
+        <div className="field-buttons">
+
+          <button
+  className="coach-btn-secondary"
+  onClick={() => {
+
+    localStorage.setItem(
+      "canchaSeleccionada",
+      JSON.stringify(c)
+    )
+
+    onNavigate("cancha-perfil")
+
+  }}
+>
+  👁 Ver detalles
+</button>
+
+          <button
+            className="coach-btn-primary"
+            onClick={() => setReservando(c)}
+          >
+            ⚽ Reservar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  ))}
+
+</div>
+
+
           ))}
           {!loading && canchas.length === 0 && <p className="estado-vacio">No hay canchas disponibles.</p>}
         </div>
+        <div className="fields-info">
+
+  <div className="section-heading">
+
+    <h2>¿Por qué reservar con GoalKeeperNow?</h2>
+
+  </div>
+
+  <div className="fields-info-grid">
+
+    <div className="fields-info-card">
+
+      <div className="fields-icon">
+        🏟️
       </div>
+
+      <h3>Canchas verificadas</h3>
+
+      <p>
+        Todas las canchas publicadas son revisadas para garantizar calidad y seguridad.
+      </p>
+
+    </div>
+
+    <div className="fields-info-card">
+
+      <div className="fields-icon">
+        💡
+      </div>
+
+      <h3>Excelentes instalaciones</h3>
+
+      <p>
+        Iluminación profesional, camerinos, parqueaderos y zonas de descanso.
+      </p>
+
+    </div>
+
+    <div className="fields-info-card">
+
+      <div className="fields-icon">
+        📅
+      </div>
+
+      <h3>Reserva inmediata</h3>
+
+      <p>
+        Consulta disponibilidad y asegura tu horario en pocos segundos.
+      </p>
+
+    </div>
+
+    <div className="fields-info-card">
+
+      <div className="fields-icon">
+        ⭐
+      </div>
+
+      <h3>Calificaciones reales</h3>
+
+      <p>
+        Conoce la experiencia de otros jugadores antes de reservar.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div className="fields-stats">
+
+  <div>
+
+    <h2>+80</h2>
+
+    <span>Canchas</span>
+
+  </div>
+
+  <div>
+
+    <h2>+1.500</h2>
+
+    <span>Reservas</span>
+
+  </div>
+
+  <div>
+
+    <h2>4.9</h2>
+
+    <span>Calificación promedio</span>
+
+  </div>
+
+  <div>
+
+    <h2>24/7</h2>
+
+    <span>Disponibilidad</span>
+
+  </div>
+
+</div>
+
+      </div>
+
+      <div className="fields-reviews">
+
+  <div className="section-heading">
+
+    <h2>Lo que dicen nuestros jugadores</h2>
+
+  </div>
+
+  <div className="fields-reviews-grid">
+
+    <div className="review-card">
+
+      <div className="review-top">
+
+        <img
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300"
+          alt="Jugador"
+        />
+
+        <div>
+
+          <h3>Juan Pérez</h3>
+
+          <span>⭐⭐⭐⭐⭐</span>
+
+        </div>
+
+      </div>
+
+      <p>
+
+        Reservé una cancha para un torneo con mis amigos y todo fue exactamente como aparecía en la aplicación. Muy recomendado.
+
+      </p>
+
+    </div>
+
+    <div className="review-card">
+
+      <div className="review-top">
+
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300"
+          alt="Jugadora"
+        />
+
+        <div>
+
+          <h3>Laura Gómez</h3>
+
+          <span>⭐⭐⭐⭐⭐</span>
+
+        </div>
+
+      </div>
+
+      <p>
+
+        Excelente iluminación, muy buen césped y el proceso de reserva fue muy rápido. Volveré a usar GoalKeeperNow.
+
+      </p>
+
+    </div>
+
+    <div className="review-card">
+
+      <div className="review-top">
+
+        <img
+          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300"
+          alt="Jugador"
+        />
+
+        <div>
+
+          <h3>Carlos Ramírez</h3>
+
+          <span>⭐⭐⭐⭐⭐</span>
+
+        </div>
+
+      </div>
+
+      <p>
+
+        Me gustó poder comparar varias canchas antes de decidir. La experiencia fue muy buena y el precio justo.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
       {reservando && (
         <div style={{ position:'fixed', inset:0, background:'rgba(11,37,69,0.55)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:50 }}>
           <div className="card" style={{ width:380, boxShadow:'var(--sombra-fuerte)' }}>
