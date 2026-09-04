@@ -1,19 +1,15 @@
 const mysql = require('mysql2/promise')
 require('dotenv').config()
 
-const dbConfig = process.env.MYSQL_URL || process.env.DATABASE_URL
-  ? process.env.MYSQL_URL || process.env.DATABASE_URL
-  : {
-      host: process.env.DB_HOST || process.env.MYSQLHOST || '127.0.0.1',
-      port: Number(process.env.DB_PORT || process.env.MYSQLPORT || 3306),
-      user: process.env.DB_USER || process.env.MYSQLUSER || 'root',
-      password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD || '',
-      database: process.env.DB_NAME || process.env.MYSQLDATABASE || 'goalkeepernow',
-      waitForConnections: true,
-      connectionLimit: 10,
-      decimalNumbers: true,
-    }
-
-const pool = mysql.createPool(dbConfig)
+const pool = mysql.createPool({
+  host: process.env.DB_HOST || process.env.MYSQLHOST || '127.0.0.1',
+  port: Number(process.env.DB_PORT || process.env.MYSQLPORT || 3306),
+  user: process.env.DB_USER || process.env.MYSQLUSER || 'root',
+  password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD || '',
+  database: process.env.DB_NAME || process.env.MYSQLDATABASE || 'goalkeepernow',
+  waitForConnections: true,
+  connectionLimit: 10,
+  decimalNumbers: true,
+})
 
 module.exports = pool
