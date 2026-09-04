@@ -1,8 +1,5 @@
 require('dotenv').config()
-console.log(process.env.DB_HOST);
-console.log(process.env.DB_PORT);
-console.log(process.env.DB_NAME);
-console.log('JWT_SECRET:', process.env.JWT_SECRET)
+console.log(`[Database] Host: ${process.env.DB_HOST || process.env.MYSQLHOST || '127.0.0.1'}, Port: ${process.env.DB_PORT || process.env.MYSQLPORT || 3306}, Database: ${process.env.DB_NAME || process.env.MYSQLDATABASE || 'goalkeepernow'}`)
 const express = require('express')
 const cors = require('cors')
 const app = express()

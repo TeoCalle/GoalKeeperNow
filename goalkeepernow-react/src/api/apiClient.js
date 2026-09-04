@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+const rawBaseURL = import.meta.env.VITE_API_URL || 'https://goalkeepernow-production.up.railway.app/api'
+const baseURL = rawBaseURL.startsWith('http') ? rawBaseURL : `https://${rawBaseURL}`
+
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'goalkeepernow-production.up.railway.app',
+  baseURL,
   headers: {
     'Content-Type': 'application/json',
   },
