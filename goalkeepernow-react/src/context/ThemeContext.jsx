@@ -42,3 +42,5 @@ export function useTheme() {
 
   return context
 }
+
+/* Este es el tema claro y oscuro */
