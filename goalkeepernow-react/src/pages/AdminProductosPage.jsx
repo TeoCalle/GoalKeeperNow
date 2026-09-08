@@ -71,7 +71,7 @@ function AdminProductosPage({ onNavigate }) {
         <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
           {productos.map(p => (
             <div className="card" key={p.id} style={{ flexDirection:'row', alignItems:'center', gap:16 }}>
-              <img src={p.imagen_url || 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=200'} alt={p.nombre} style={{ width:70, height:70, objectFit:'cover', borderRadius:4, flexShrink:0 }} />
+              <img src={p.imagen_url || '/images/gk_goalkeeper.png'} alt={p.nombre} style={{ width:70, height:70, objectFit:'cover', borderRadius:4, flexShrink:0 }} />
               <div style={{ flex:1 }}>
                 <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:2 }}>
                   <strong style={{ color:'var(--azul-marino)' }}>{p.nombre}</strong>

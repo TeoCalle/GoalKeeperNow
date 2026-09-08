@@ -89,7 +89,7 @@ function CarritoPage({ onNavigate }) {
               {items.map(item => (
                 <div className="card" key={item.id} style={{ flexDirection: 'row', gap: 16, alignItems: 'center' }}>
                   <img
-                    src={item.imagen_url || 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=200'}
+                    src={item.imagen_url || '/images/gk_goalkeeper.png'}
                     alt={item.nombre}
                     style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 4, flexShrink: 0 }}
                   />

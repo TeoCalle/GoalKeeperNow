@@ -23,7 +23,7 @@ function PorteroPerfilPage({ onNavigate }) {
 
                         <img
                             className="goalkeeper-photo"
-                            src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=600"
+                            src="/images/gk_goalkeeper.png"
                             alt="Arquero"
                         />
 

@@ -1,4 +1,4 @@
-# GoalKeeperNow / Arqueros.co — Backend
+# GoalKeeperNow  — Backend
 
 API en Node.js + Express + MySQL que conecta el frontend React con tu base de datos `goalkeepernow` (la que administras en phpMyAdmin).
 

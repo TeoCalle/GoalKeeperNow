@@ -20,7 +20,7 @@ function EntrenadoresPage({ onNavigate }) {
   className="coach-hero"
   style={{
     backgroundImage:
-      "linear-gradient(rgba(8,25,45,.75), rgba(8,25,45,.75)), url('https://images.unsplash.com/photo-1511886929837-354d827aae26?w=1600')",
+      "linear-gradient(rgba(8,25,45,.75), rgba(8,25,45,.75)), url('/images/gk_goalkeeper.png')",
   }}
 >
 
@@ -66,7 +66,7 @@ function EntrenadoresPage({ onNavigate }) {
         <img
           src={
             e.foto_url ||
-            "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800"
+            "/images/gk_goalkeeper.png"
           }
           alt={e.nombre}
         />

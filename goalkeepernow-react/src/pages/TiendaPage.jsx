@@ -130,7 +130,7 @@ function TiendaPage({ onNavigate }) {
     <div className="store-hero-right">
 
         <img
-            src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=1200"
+            src="/images/gk_field.png"
             alt="Implementos deportivos"
         />
 
@@ -291,7 +291,7 @@ function TiendaPage({ onNavigate }) {
                 <img
                     src={
                         p.imagen_url ||
-                        "https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=900"
+                        "/images/gk_goalkeeper.png"
                     }
                     alt={p.nombre}
                 />
@@ -506,7 +506,7 @@ function TiendaPage({ onNavigate }) {
                   <div className="store-image">
 
 <img
-src={p.imagen_url || 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=700'}
+src={p.imagen_url || '/images/gk_goalkeeper.png'}
 alt={p.nombre}
 />
 

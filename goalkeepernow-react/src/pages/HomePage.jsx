@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar'
+import OfficialLogo from '../components/OfficialLogo'
 
 function HomePage({ onNavigate }) {
   return (
@@ -13,7 +14,7 @@ function HomePage({ onNavigate }) {
             className="hero-tile principal"
             style={{
               backgroundImage:
-                'url(https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=900)',
+                'url(/images/gk_goalkeeper.png',
             }}
           >
             <div className="hero-tile-overlay" />
@@ -48,7 +49,7 @@ function HomePage({ onNavigate }) {
               className="hero-tile"
               style={{
                 backgroundImage:
-                  'url(https://images.unsplash.com/photo-1577223625816-7546f13df25d?q=80&w=700)',
+                  'url(/images/gk_goalkeeper.png',
               }}
             >
               <div className="hero-tile-overlay" />
@@ -76,7 +77,7 @@ function HomePage({ onNavigate }) {
   className="hero-tile"
   style={{
     backgroundImage:
-      'url(https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=1200)',
+      'url(/images/gk_goalkeeper.png',
   }}
 >
               <div className="hero-tile-overlay" />
@@ -354,7 +355,7 @@ function HomePage({ onNavigate }) {
     <div className="featured-card">
 
       <img
-        src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=700"
+        src="/images/gk_goalkeeper.png"
         alt="Arquero"
       />
 
@@ -399,7 +400,7 @@ function HomePage({ onNavigate }) {
     <div className="featured-card">
 
       <img
-        src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=700"
+        src="/images/gk_goalkeeper.png"
         alt="Arquero"
       />
 
@@ -444,7 +445,7 @@ function HomePage({ onNavigate }) {
     <div className="featured-card">
 
       <img
-        src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=700"
+        src="/images/gk_goalkeeper.png"
         alt="Arquero"
       />
 
@@ -516,7 +517,7 @@ function HomePage({ onNavigate }) {
   </div>
 
   <img
-    src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=900"
+    src="/images/gk_field.png"
     alt="Arquero"
   />
 
@@ -627,14 +628,11 @@ function HomePage({ onNavigate }) {
       <footer className="footer-home">
 
         <div className="footer-logo">
-
-          <h2>GoalKeeperNow</h2>
-
-          <p>
+          <OfficialLogo height={46} showText={true} lightText={true} />
+          <p style={{ marginTop: '12px' }}>
             La plataforma que conecta jugadores con arqueros de manera rápida,
             segura y confiable.
           </p>
-
         </div>
 
         <div className="footer-links">

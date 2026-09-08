@@ -110,7 +110,7 @@ function AdminCanchasPage({ onNavigate }) {
         <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
           {canchas.map(c => (
             <div className="card" key={c.id} style={{ flexDirection:'row', alignItems:'center', gap:16 }}>
-              <img src={c.foto_url || 'https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=200'}
+              <img src={c.foto_url || '/images/gk_goalkeeper.png'}
                 alt={c.nombre} style={{ width:70, height:70, objectFit:'cover', borderRadius:4, flexShrink:0 }} />
               <div style={{ flex:1 }}>
                 <strong style={{ color:'var(--azul-marino)' }}>{c.nombre}</strong>

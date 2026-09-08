@@ -37,7 +37,7 @@ function CanchasPage({ onNavigate }) {
   className="fields-hero"
   style={{
     backgroundImage:
-      "linear-gradient(rgba(8,25,45,.72), rgba(8,25,45,.72)), url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=1600')",
+      "linear-gradient(rgba(8,25,45,.72), rgba(8,25,45,.72)), url('/images/gk_field.png')",
   }}
 >
 
@@ -102,7 +102,7 @@ function CanchasPage({ onNavigate }) {
         <img
           src={
             c.foto_url ||
-            "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=1200"
+            "/images/gk_goalkeeper.png"
           }
           alt={c.nombre}
         />
@@ -317,7 +317,7 @@ function CanchasPage({ onNavigate }) {
       <div className="review-top">
 
         <img
-          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300"
+          src="/images/gk_goalkeeper.png"
           alt="Jugador"
         />
 
@@ -344,7 +344,7 @@ function CanchasPage({ onNavigate }) {
       <div className="review-top">
 
         <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300"
+          src="/images/gk_goalkeeper.png"
           alt="Jugadora"
         />
 
@@ -371,7 +371,7 @@ function CanchasPage({ onNavigate }) {
       <div className="review-top">
 
         <img
-          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300"
+          src="/images/gk_goalkeeper.png"
           alt="Jugador"
         />
 

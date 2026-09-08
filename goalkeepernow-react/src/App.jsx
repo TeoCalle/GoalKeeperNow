@@ -24,7 +24,7 @@ import PorteroPerfilPage from './pages/PorteroPerfilPage'
 import EntrenadorPerfilPage from './pages/EntrenadorPerfilPage'
 import CanchaPerfilPage from './pages/CanchaPerfilPage'
 import PagosPage from './pages/PagosPage'
-
+import SearchPage from './pages/SearchPage'
 
 function paginaInicial() {
   const token = localStorage.getItem('token')
@@ -35,8 +35,12 @@ function paginaInicial() {
 
 function App() {
   const [pagina, setPagina] = useState(paginaInicial())
+  const [searchQuery, setSearchQuery] = useState('')
 
-  function navigate(destino) {
+  function navigate(destino, params = {}) {
+    if (params && params.query !== undefined) {
+      setSearchQuery(params.query)
+    }
     setPagina(destino)
     window.scrollTo(0, 0)
   }
@@ -55,6 +59,7 @@ function App() {
       {pagina === 'carrito' && <CarritoPage onNavigate={navigate} />}
       {pagina === 'entrenadores' && <EntrenadoresPage onNavigate={navigate} />}
       {pagina === 'canchas' && <CanchasPage onNavigate={navigate} />}
+      {pagina === 'busqueda' && <SearchPage onNavigate={navigate} queryInicial={searchQuery} />}
       {pagina === 'admin' && <AdminDashboardPage onNavigate={navigate} />}
       {pagina === 'admin-usuarios' && <AdminUsuariosPage onNavigate={navigate} />}
       {pagina === 'admin-productos' && <AdminProductosPage onNavigate={navigate} />}

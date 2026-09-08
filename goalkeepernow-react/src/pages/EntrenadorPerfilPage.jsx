@@ -25,7 +25,7 @@ function EntrenadorPerfilPage({ onNavigate }) {
                             className="goalkeeper-photo"
                             src={
                                 entrenador.foto_url ||
-                                "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900"
+                                "/images/gk_goalkeeper.png"
                             }
                             alt={entrenador.nombre}
                         />

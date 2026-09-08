@@ -108,7 +108,7 @@ function AdminEntrenadoresPage({ onNavigate }) {
         <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
           {entrenadores.map(e => (
             <div className="card" key={e.id} style={{ flexDirection:'row', alignItems:'center', gap:16 }}>
-              <img src={e.foto_url || 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=200'}
+              <img src={e.foto_url || '/images/gk_goalkeeper.png'}
                 alt={e.nombre} style={{ width:70, height:70, objectFit:'cover', borderRadius:'50%', flexShrink:0 }} />
               <div style={{ flex:1 }}>
                 <strong style={{ color:'var(--azul-marino)' }}>{e.nombre}</strong>
