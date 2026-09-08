@@ -8472,4 +8472,139 @@ html {
   }
 }
 
-
+
+/* ============================================================
+   TEMA OSCURO
+   ============================================================ */
+
+[data-theme="dark"] {
+    --tema-fondo: #0B1220;
+    --tema-card: #151F2E;
+    --tema-texto: #F1F5F9;
+    --tema-texto-suave: #A8B3C2;
+    --tema-linea: #293548;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    background: var(--tema-fondo);
+    color: var(--tema-texto);
+}
+
+[data-theme="dark"] .page-shell,
+[data-theme="dark"] .dashboard-main {
+    color: var(--tema-texto);
+    background: var(--tema-fondo);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature-box,
+[data-theme="dark"] .portero-card,
+[data-theme="dark"] .store-category-card,
+[data-theme="dark"] .store-featured-card,
+[data-theme="dark"] .coach-benefit-card,
+[data-theme="dark"] .payment-option,
+[data-theme="dark"] .login-box {
+    background: var(--tema-card);
+    border-color: var(--tema-linea);
+}
+
+[data-theme="dark"] .card h2,
+[data-theme="dark"] .feature-box h3,
+[data-theme="dark"] .portero-card-body,
+[data-theme="dark"] .precio-tag,
+[data-theme="dark"] .store-featured-content h3,
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 {
+    color: var(--tema-texto);
+}
+
+[data-theme="dark"] .card p,
+[data-theme="dark"] .feature-box p,
+[data-theme="dark"] .portero-card-body p.desc,
+[data-theme="dark"] p {
+    color: var(--tema-texto-suave);
+}
+
+[data-theme="dark"] .section-heading {
+    border-color: var(--azul-cancha);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(11, 18, 32, 0.96);
+    border-bottom-color: rgba(255,255,255,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .navbar-search input {
+    background: #151F2E;
+    color: #F1F5F9;
+    border-color: #293548;
+}
+
+[data-theme="dark"] .navbar-search input::placeholder {
+    color: #A8B3C2;
+}
+
+[data-theme="dark"] .navbar-icons .icon-btn {
+    background: #1C2B40;
+    color: #F1F5F9;
+}
+
+[data-theme="dark"] .navbar-logo,
+[data-theme="dark"] .navbar-logo * {
+    color: #F1F5F9;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background: #151F2E;
+    color: #F1F5F9;
+    border-color: #293548;
+    color-scheme: dark;
+}
+
+[data-theme="dark"] .login-form-side {
+    background: var(--tema-fondo);
+}
+
+[data-theme="dark"] .portero-card-top {
+    background: linear-gradient(120deg, #0d1a2e, #162a45);
+}
+
+[data-theme="dark"] .dashboard-hero {
+    background: linear-gradient(120deg, #050d1a, #0d1e35);
+}
+
+[data-theme="dark"] .fondo {
+    background: var(--tema-fondo);
+}
+
+[data-theme="dark"] .error-msg {
+    background: #2a0e0e;
+    border-color: #5c1a1a;
+    color: #f87171;
+}
+
+/* Transición suave en cambio de tema */
+body, .navbar, .card, .feature-box, .portero-card,
+.store-category-card, .login-box, .navbar-search,
+.navbar-icons .icon-btn, input, select, textarea {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Botón de alternar tema (ubicado junto a WhatsApp/Instagram) */
+.social-icon.theme-toggle {
+    background: #4B5A70;
+}
+.social-icon.theme-toggle:hover {
+    background: #5C6D87;
+}
+[data-theme="dark"] .social-icon.theme-toggle {
+    background: #243247;
+    color: #FFD54F;
+}

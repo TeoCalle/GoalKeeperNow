@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { useCarrito } from '../context/CarritoContext'
-import { FaWhatsapp, FaInstagram, FaBars, FaTimes } from 'react-icons/fa'
+import { useTheme } from '../context/ThemeContext'
+import { FaWhatsapp, FaInstagram, FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa'
 import { OfficialLogo } from './OfficialLogo'
 import { buscarEnTodo } from '../services/searchService'
 
 function Navbar({ onNavigate, paginaActiva }) {
   const usuario = JSON.parse(localStorage.getItem('usuario') || '{}')
   const { totalItems } = useCarrito()
+  const { darkMode, toggleTheme } = useTheme()
 
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
@@ -208,6 +210,14 @@ function Navbar({ onNavigate, paginaActiva }) {
             </button>
           ))}
           <div className="navbar-social">
+            <button
+              className="social-icon theme-toggle"
+              title={darkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+              aria-label={darkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+              onClick={toggleTheme}
+            >
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </button>
             <button className="social-icon whatsapp" title="WhatsApp" onClick={() => window.open('https://web.whatsapp.com/', '_blank')}>
               <FaWhatsapp />
             </button>
@@ -240,6 +250,14 @@ function Navbar({ onNavigate, paginaActiva }) {
             )}
 
             <div style={{ display: 'flex', gap: '12px', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+              <button
+                className="social-icon theme-toggle"
+                title={darkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+                aria-label={darkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+                onClick={toggleTheme}
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
               <button className="social-icon whatsapp" title="WhatsApp" onClick={() => window.open('https://web.whatsapp.com/', '_blank')}>
                 <FaWhatsapp />
               </button>
