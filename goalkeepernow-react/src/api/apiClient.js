@@ -1,11 +1,13 @@
 import axios from 'axios'
-
+const rawURL = import.meta.env.VITE_API_URL || 'https://goalkeepernow-production.up.railway.app/api'
+const baseURL = rawURL.startsWith('http') ? rawURL : `https://${rawURL}`
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
+  baseURL,
   headers: {
     'Content-Type': 'application/json',
   },
 })
+
 
 // Adjunta el token JWT (si existe) a cada petición
 apiClient.interceptors.request.use((config) => {

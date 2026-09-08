@@ -27,6 +27,11 @@ export async function actualizarPortero(porteroId, data) {
   return res.data
 }
 
+export async function getPortero(id) {
+  const res = await apiClient.get(`/porteros/${id}`)
+  return res.data
+}
+
 // --- Solicitudes (contratación de arqueros) ---
 export async function crearSolicitud(data) {
   const res = await apiClient.post('/solicitudes', data)
